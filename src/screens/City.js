@@ -10,34 +10,47 @@ import React, { Component } from "react";
 import IconText from "../components/IconText";
 
 const City = () => {
+  const {
+    container,
+    cityName,
+    cityText,
+    imageLayout,
+    countryName,
+    populationWrapper,
+    populationText,
+    riseSetWrapper,
+    riseSetText,
+    rowLayout,
+  } = styles;
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={container}>
       <ImageBackground
-        styles={styles.imageLayout}
+        styles={imageLayout}
         source={require("../../assets/citybackground.jpg")}
       ></ImageBackground>
-      <Text style={[styles.cityName, styles.cityText]}>City Name</Text>
-      <Text style={[styles.countryName, styles.cityText]}>Country</Text>
-      <View style={styles.populationWrapper}>
+      <Text style={[cityName, cityText]}>City Name</Text>
+      <Text style={[countryName, cityText]}>Country</Text>
+      <View style={[populationWrapper, rowLayout]}>
         <IconText
           iconname={"user"}
           iconColor={"red"}
           bodyText={"8000"}
-          bodyTextStyles={styles.populationText}
+          bodyTextStyles={populationText}
         />
       </View>
-      <View style={styles.riseSetWrapper}>
+      <View style={[riseSetWrapper, rowLayout]}>
         <IconText
           iconname={"sunrise"}
           iconColor={"white"}
           bodyText={"10:46:58AM"}
-          bodyTextStyles={styles.riseSetText}
+          bodyTextStyles={riseSetText}
         />
         <IconText
           iconname={"sunset"}
           iconColor={"white"}
           bodyText={"17:28:15PM"}
-          bodyTextStyles={styles.riseSetText}
+          bodyTextStyles={riseSetText}
         />
       </View>
     </SafeAreaView>
@@ -65,8 +78,6 @@ const styles = StyleSheet.create({
     color: "white",
   },
   populationWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
     justifyContent: "center",
     marginTop: 30,
   },
@@ -77,8 +88,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   riseSetWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
     justifyContent: "space-around",
     marginTop: 30,
   },
